@@ -20,6 +20,7 @@
 /*
  * How to move the motors?
  * Certain time period? Voltage=step? Magic?
+ * Do we return a successful/not successful value from the move and turn methods
  */
 
 void move(SFR_16BIT left_motor, SFR_16BIT right_motor, char direction) {
@@ -30,5 +31,6 @@ void turn(SFR_16BIT left_motor, SFR_16BIT right_motor, char direction) {
 
 }
 
+// WHAT ELSE IS NEEDED?
 
 #endif /* MOVE_H_ */
