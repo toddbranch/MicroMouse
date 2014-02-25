@@ -3,13 +3,11 @@
  *
  *	Someone should comment this project
  *
- *  Created on: Feb 22, 2014
- *      Author: Hamza El-Saawy
- *
  */
 
 #include <msp430.h>
-#include "move.h"
+#include "motor.h"
+#include "sensors.h"
 #include "think.h"
 
 // HERE BE LOCATIONS OF THE MOTORS AND SENSORES
@@ -27,16 +25,11 @@
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
 
-
-    // Turn on output mode for the motors
-    P1DIR = MOTORS; 	// zero out all other values and allow output on motor ports
-    P1OUT = 0;			// reset output values
-
     // Set up pins for sensor input
     P1REN = SENSORS;	// allow for pull-up/down resistors
     				//  P1OUT=0, so sensor inputs have pull down
     P1IFG = 0;		// reset all the interrupt flags
-    P1IES = SENSORS;	// set interrupt on rising edge.  WE ALSO NEED TO WORK OUT HOW TO SIGNAL A WAL
+    P1IES = SENSORS;	// set interrupt on rising edge.  WE ALSO NEED TO WORK OUT HOW TO SIGNAL A WALL
     P1IE  = SENSORS;	// enable interrupts on the sensor ports
 
     __bis_SR(GIE);	// enable general interrupts

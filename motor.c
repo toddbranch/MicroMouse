@@ -10,11 +10,11 @@ void initRightMotor()
 	P1DIR |= BIT1;
 	P1SEL |= BIT1;
 
-  P1DIR |= BIT2;
+	P1DIR |= BIT2;
 	P1SEL |= BIT2;
 
 	TA0CCR0 = 100;						// period is 100
-  TA0CCR1 = 0;
+	TA0CCR1 = 0;
 
 	TA0CCTL0 |= OUTMOD2|OUTMOD0;     // set both to reset mode
 	TA0CCTL1 |= OUTMOD2|OUTMOD0;
@@ -31,11 +31,11 @@ void initLeftMotor()
 	P2DIR |= BIT0;
 	P2SEL |= BIT0;
 
-  P2DIR |= BIT1;
+	P2DIR |= BIT1;
 	P2SEL |= BIT1;
 
 	TA1CCR0 = 100;						// period is 100
-  TA1CCR1 = 0;
+	TA1CCR1 = 0;
 
 	TA1CCTL0 |= OUTMOD2|OUTMOD0;     // set both to reset mode
 	TA1CCTL1 |= OUTMOD2|OUTMOD0;
@@ -75,30 +75,30 @@ void moveLeftMotorBackward()
 
 void initMotors()
 {
-  initRightMotor();
-  initLeftMotor();
+	initRightMotor();
+	initLeftMotor();
 }
 
 void moveForward()
 {
-  moveRightMotorForward();
-  moveLeftMotorForward();
+	moveRightMotorForward();
+	moveLeftMotorForward();
 }
 
 void moveBackward()
 {
-  moveRightMotorBackward();
-  moveLeftMotorBackward();
+	moveRightMotorBackward();
+	moveLeftMotorBackward();
 }
 
 void turnLeft()
 {
-  moveLeftMotorBackward();
-  moveRightMotorForward();
+	moveLeftMotorBackward();
+	moveRightMotorForward();
 }
 
 void turnRight()
 {
-  moveRightMotorBackward();
-  moveLeftMotorForward();
+	moveRightMotorBackward();
+	moveLeftMotorForward();
 }
