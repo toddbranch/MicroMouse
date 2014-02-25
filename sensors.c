@@ -35,23 +35,26 @@ unsigned int getLeftSensorValue()
 
 unsigned int getRightSensorValue()
 {
-  //set INCH to proper bit
   ADC10CTL1 = INCH_3;
 
-  //initiate conversion
-  ADC10CTL0 |= ENC + ADC10SC;             // Sampling and conversion start
+  ADC10CTL0 |= ENC + ADC10SC;             
 
-  //poll for result
   while (!(ADC10IFG & ADC10CTL0)) {}
 
-  //clear flag
   ADC10CTL0 &= ~ADC10IFG;
 
-  //return result
   return ADC10MEM;
 }
 
 unsigned int getCenterSensorValue()
 {
-  return 0;
+  ADC10CTL1 = INCH_4;
+
+  ADC10CTL0 |= ENC + ADC10SC;             
+
+  while (!(ADC10IFG & ADC10CTL0)) {}
+
+  ADC10CTL0 &= ~ADC10IFG;
+
+  return ADC10MEM;
 }
